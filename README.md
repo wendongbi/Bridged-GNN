@@ -1,9 +1,11 @@
 # Bridged-GNN
-Bridged-GNN for Knowledge Bridge Learning (KBL), the paper is accepted by CIKM2023
+Bridged-GNN for Knowledge Bridge Learning (KBL), the paper is accepted by CIKM2023.
+
+
 
 ## Datasets
 
-We conduct experiments on five datasets, including four real-world datasets and  a synthetic dataset. The detailed information of these datasets are as follows:
+We conduct experiments on five datasets, including four real-world datasets and  a synthetic dataset. We preprocessed all datasets used in this paper, including relational and unrelational datasets,  into the format of *torch_geometric*. And our processed datasets are available at `./dataset/xxx.dat` (unzip the file named 'dataset_pyg.tar.gz' in the dataset folder first). And we provide a demo to load the dataset. The detailed information of these datasets are as follows:
 
 * **Twitter**: Twitter is a social network dataset that describes the social relations among politicians (source domain) and civilians (target domain) on the Twitter platform. The node features are the  GloVe  embedding of user's Tweets (we do not use the user profile features of politicians used in the original paper), and the goal is to predict the political tendency of civilians. The original dataset ($\text{Twitter}_\text{Graph}$) is used in $RD_{intra\&inter}$ scenarios. By removing all original edges, we also construct the $\text{Twitter}_{UD}$ dataset in un-relational data ($UD$) scenarios. 
 
@@ -14,3 +16,4 @@ We conduct experiments on five datasets, including four real-world datasets and 
 * **Company**: Company dataset is a company investment network with 10641 real-world companies in China. The node attributes are the company's financial attributes. We regard listed companies as source domain and unlisted companies as target domain and the goal is to predict the risk status of non-listed companies. We complement missing features of non-listed companies by mean value of neighbors (we do not consider the feature missing problems in the original paper ). And we use this dataset in the $RD_{intra\&inter}$ scenario.
 
 * **Sync-$UD$/Sync-$RD_{intra}$/Sync-$RD_{intra\&inter}$**: We also construct a synthetic dataset for three scenarios of GKT by randomly sampling points of source and target domains  from two distinct Multivariate Gaussian distributions. As shown in the Fig. \ref{fig:domain_shift_visual} (e), samples of source and target domains in this dataset are designed to have distinct conditional distribution and marginal distribution to validate the motivations described in Sec. \ref{sec:motivation}.  We use this dataset in all three scenarios, and we randomly add edges with fixed homophilous ratio of 70% for Sync-$RD_{intra}$ and Sync-$RD_{intra\&inter}$.
+
