@@ -21,15 +21,13 @@ We conduct experiments on five datasets, including four real-world datasets and 
 
 ## Training Bridged-GNN
 
+First, unzip the `datasets.zip` file into the datasets folder, and the code can be found at the `./Bridged-GNN` folder.
 
-
-we provide the demo file (run.sh) to train a Bridged-GNN model:
+Then,  we provide the demo file (run.sh) to train a Bridged-GNN model:
 
 ```bash
 sh run.sh
 ```
-
-
 
 Specifically, the training process are divided into two steps:
 
@@ -40,6 +38,8 @@ Specifically, the training process are divided into two steps:
   ```bash
   python main_bridged_graph.py --hidden_dim 128 --num_epoch 400 --start_eval_epoch 300 --epsilon 0.5 --k_within 3 --k_cross 20  --seed 0  --save --dataset_name office_amazon2dslr --version v2  --check_within --check_cross 
   ```
+
+Then the learned bridged-graph will be saved into the `./data_bridged_graph` folder, and the model parameters will be saved into the `./ckpt` folder
 
 * Step-2: to conduct knowledge transfer on the learned bridged-graph with GNN (here we use KT-GNN):
 
